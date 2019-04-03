@@ -10,7 +10,7 @@ let columnIcons = [
   settings.group_fourth_column_icon
 ];
 
-api.createWidget("groupbanner-column-icon", {
+api.createWidget("group_groupbanner-column-icon", {
   tagName: "div.icon",
   html(attrs) {
     let columnIcon = columnIcons[attrs.column];
@@ -24,37 +24,37 @@ api.createWidget("groupbanner-column-icon", {
 });
 
 function setCurrentExpDate(cookieExpDate) {
-  if($.cookie("groupbanner_closed")) {
-    let closedCookie = JSON.parse($.cookie("groupbanner_closed"));
+  if($.cookie("group_groupbanner_closed")) {
+    let closedCookie = JSON.parse($.cookie("group_groupbanner_closed"));
     if(closedCookie.name != settings.group_cookie_name) {
-      $.removeCookie("groupbanner_closed", {path: '/'} );
+      $.removeCookie("group_groupbanner_closed", {path: '/'} );
     } else {
-      $.cookie("groupbanner_closed", JSON.stringify(closedCookie), { expires: cookieExpDate, path: '/' });
+      $.cookie("group_groupbanner_closed", JSON.stringify(closedCookie), { expires: cookieExpDate, path: '/' });
     }
   }
 
-  if($.cookie("groupbanner_collapsed")) {
-    let collapsedCookie = JSON.parse($.cookie("groupbanner_collapsed"));
+  if($.cookie("group_groupbanner_collapsed")) {
+    let collapsedCookie = JSON.parse($.cookie("group_groupbanner_collapsed"));
     if(collapsedCookie.name != settings.group_cookie_name) {
-      $.removeCookie("groupbanner_collapsed", {path: '/'} );
+      $.removeCookie("group_groupbanner_collapsed", {path: '/'} );
     } else {
-      $.cookie("groupbanner_collapsed", JSON.stringify(collapsedCookie), { expires: cookieExpDate, path: '/' });
+      $.cookie("group_groupbanner_collapsed", JSON.stringify(collapsedCookie), { expires: cookieExpDate, path: '/' });
     }
   }
 }
 
 function setupgroupbanner() {
-  if($.cookie("groupbanner_closed")) {
-    let closedCookie = JSON.parse($.cookie("groupbanner_closed"));
+  if($.cookie("group_groupbanner_closed")) {
+    let closedCookie = JSON.parse($.cookie("group_groupbanner_closed"));
     if(closedCookie.closed == "true" && settings.group_dismissible) {
       $('.groupbanner-box').addClass("hidden");
     }
   }
   let collapsedCookie;
-  if($.cookie("groupbanner_collapsed")) {
-    collapsedCookie = JSON.parse($.cookie("groupbanner_collapsed"));
+  if($.cookie("group_groupbanner_collapsed")) {
+    collapsedCookie = JSON.parse($.cookie("group_groupbanner_collapsed"));
   }
-  if(!$.cookie("groupbanner_collapsed") && settings.group_collapsible && settings.group_default_collapsed_state == "collapsed" || collapsedCookie && collapsedCookie.collapsed == "true") {
+  if(!$.cookie("group_groupbanner_collapsed") && settings.group_collapsible && settings.group_default_collapsed_state == "collapsed" || collapsedCookie && collapsedCookie.collapsed == "true") {
     $('#groupbanner-content_wrap').addClass("hidden");
     $('.d-icon-chevron-down').removeClass("hidden");
     $('.d-icon-chevron-up').addClass("hidden");
@@ -79,8 +79,8 @@ function addClickEvents(cookieExpDate) {
     $('.d-icon-chevron-up').toggle();
     if(cookieExpDate) {
       let groupbannerState;
-      if($.cookie("groupbanner_collapsed")) {
-        groupbannerState = JSON.parse($.cookie('groupbanner_collapsed'));
+      if($.cookie("group_groupbanner_collapsed")) {
+        groupbannerState = JSON.parse($.cookie('group_groupbanner_collapsed'));
         groupbannerState.name = settings.group_cookie_name;
         if(groupbannerState.collapsed == "false") {
           groupbannerState.collapsed = "true";
@@ -94,7 +94,7 @@ function addClickEvents(cookieExpDate) {
           groupbannerState = { name: settings.group_cookie_name, collapsed: "true" }
         }
       }
-      $.cookie("groupbanner_collapsed", JSON.stringify(groupbannerState), { expires: cookieExpDate, path: '/' });
+      $.cookie("group_groupbanner_collapsed", JSON.stringify(groupbannerState), { expires: cookieExpDate, path: '/' });
     }
   });
 }
@@ -108,8 +108,8 @@ api.modifyClass("component:site-header", {
       setCurrentExpDate(cookieExpDate);
       addClickEvents(cookieExpDate);
     } else {
-      $.removeCookie("groupbanner_closed", {path: '/'} );
-      $.removeCookie("groupbanner_collapsed", {path: '/'} );
+      $.removeCookie("group_groupbanner_closed", {path: '/'} );
+      $.removeCookie("group_groupbanner_collapsed", {path: '/'} );
       addClickEvents(false);
     }
     setupgroupbanner();
