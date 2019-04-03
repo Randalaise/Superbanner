@@ -10,12 +10,12 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="/connectors/above-main-container/superbanner-themes">
-  {{#if (theme-setting 'show_for_members')}}
+  {{#if (theme-setting 'group_show_for_members')}}
     {{#if currentUser}}
       {{plugin-outlet name="custom-superbanner"}}
     {{/if}}
   {{/if}}
-  {{#if (theme-setting 'show_for_anon')}}
+  {{#if (theme-setting 'group_show_for_anon')}}
     {{#unless currentUser}}
       {{plugin-outlet name="custom-superbanner"}}
     {{/unless}}
