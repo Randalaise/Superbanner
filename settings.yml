@@ -82,7 +82,7 @@ secondary_text_color:
         with CSS, create a separate theme component. Leave the content blank to exclude a column. 
         While a fourth column is provided, it will likely result in too much content for the 
         available space. Be sure you are happy with your configuration across different brower widths.'
-main_heading_content:
+group_main_heading_content:
   type: string
   textarea: true
   default: |
