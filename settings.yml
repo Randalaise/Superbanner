@@ -2,32 +2,32 @@ show_for_members:
   type: bool
   default: true
   description: 
-    en: 'Display the banner for users logged into the forum'
+    en: 'Display the superbanner for users logged into the forum'
 show_for_anon:
   type: bool
   default: true
   description: 
-    en: 'Display the banner for anonymous users'
+    en: 'Display the superbanner for anonymous users'
 display_on_mobile:
   type: bool
   default: true
   description: 
-    en: 'Display the banner on mobile devices'
+    en: 'Display the superbanner on mobile devices'
 display_on_desktop:
   type: bool
   default: true
   description: 
-    en: 'Display the banner on desktop computers'
+    en: 'Display the superbanner on desktop computers'
 dismissible:
   type: bool
   default: false
   description: 
-    en: 'Allow the banner to be closed by users'
+    en: 'Allow the superbanner to be closed by users'
 collapsible:
   type: bool
   default: false
   description: 
-    en: 'Allow the banner to be expanded and collapsed by users'
+    en: 'Allow the superbanner to be expanded and collapsed by users'
 default_collapsed_state:
   type: enum
   default: collapsed
@@ -39,24 +39,24 @@ cookie_expiration_date:
   type: string
   default: ""
   description: 
-    en: 'Leaving this setting blank will disable the cookies and make sure any existing banner cookies 
+    en: 'Leaving this setting blank will disable the cookies and make sure any existing superbanner cookies 
         are deleted the next time a user visits. Two cookies are used to persist the expanded/collapsed 
-        state and closed state of the banner. Enter a date in the following format:<br>
+        state and closed state of the superbanner. Enter a date in the following format:<br>
         <b>DD Mon YYYY HH:MM TIMEZONE</b><br>
         Example: <b>12 Feb 2019 16:38 PST</b><br>
         WARNING: See "cookie name" setting below for important info
-        regarding changes made to the banner after cookies have been activated.'
+        regarding changes made to the superbanner after cookies have been activated.'
 cookie_name:
   type: string
   default: "v1"
   description: 
-    en: 'When important changes are made to the banner, you must change the cookie name name to ensure all your users see the changes.'
-full_width_banner:
+    en: 'When important changes are made to the superbanner, you must change the cookie name name to ensure all your users see the changes.'
+full_width_superbanner:
   type: bool
   default: false
   description: 
-    en: 'Display the banner at full browser width'
-banner_background_image:
+    en: 'Display the superbanner at full browser width'
+superbanner_background_image:
   type: string
   default: "https://i.imgur.com/k7SnZth.jpg"
   description: 
@@ -70,15 +70,15 @@ primary_text_color:
   type: string
   default: "#000"
   description:
-    en: 'The main text color of the banner'
+    en: 'The main text color of the superbanner'
 secondary_text_color:
   type: string
   default: "#FF6C00"
   description:
     en: 'The text color of the icon and text headings, and the button background color.
         <br><br><br>
-        <h2>Banner Content Customization</h2>
-        Customize the content of the banner with HTML. If you need to style your custom content 
+        <h2>superbanner Content Customization</h2>
+        Customize the content of the superbanner with HTML. If you need to style your custom content 
         with CSS, create a separate theme component. Leave the content blank to exclude a column. 
         While a fourth column is provided, it will likely result in too much content for the 
         available space. Be sure you are happy with your configuration across different brower widths.'
@@ -110,7 +110,7 @@ first_column_content:
               Sed id congue eros, sit amet suscipit libero. Nunc vitae 
               placerat est.
             </p>
-            <div class="banner-list">
+            <div class="superbanner-list">
               <ul>
                 <li><a href="https://twitter.com/discourse" target="_blank">A tweet</a> to wake up my friends</li>
                 <li>Put the photos in the bag</li>
