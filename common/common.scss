@@ -1,18 +1,18 @@
-@if $display_on_desktop == "false" {
-  .superbanner-box {
+@if $group_display_on_desktop == "false" {
+  .groupbanner-box {
     display: none !important;
   }
 }
 
-.superbanner-box {
-  color: $primary_text_color;
+.groupbanner-box {
+  color: $group_primary_text_color;
   position: relative;
   margin-bottom: 20px;
-  background-image: url($superbanner_background_image);
+  background-image: url($group_groupbanner_background_image);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-color: $background_color;
+  background-color: $group_background_color;
 
   .button-container {
     position: absolute;
@@ -45,14 +45,14 @@
       padding: 15px 65px;
       margin: 0;
       text-align: center;
-      color: $secondary_text_color;
+      color: $group_secondary_text_color;
     }
 
     .colored-line {
       margin: auto;
       width: 165px;
       height: 1px;
-      background: $secondary_text_color;
+      background: $group_secondary_text_color;
     }
 
     .description p {
@@ -75,7 +75,7 @@
 
       .icon {
         font-size: 70px;
-        color: $secondary_text_color;
+        color: $group_secondary_text_color;
 
         .responsive-img {
           vertical-align: -0.125em;
@@ -87,10 +87,10 @@
 
       h3 {
         text-align: center;
-        color: $secondary_text_color;
+        color: $group_secondary_text_color;
       }
 
-      .superbanner-list {
+      .groupbanner-list {
         display: flex;
         justify-content: center;
         ul {
@@ -100,7 +100,7 @@
       }
 
       .btn.btn-icon-text {
-        background: $secondary_text_color;
+        background: $group_secondary_text_color;
       }
     }
   }
@@ -113,60 +113,60 @@
 ////////////// Columns //////////////
 
 // First column
-@if $first_column_size == "auto" {
+@if $group_first_column_size == "auto" {
   .first_column {
     flex-grow: 1;
     flex-basis: 0;
   }
 } @else {
   .first_column {
-    width: $first_column_size;
+    width: $group_first_column_size;
   }
 }
 
 // Second column
-@if $second_column_size == "auto" {
+@if $group_second_column_size == "auto" {
   .second_column {
     flex-grow: 1;
     flex-basis: 0;
   }
 } @else {
   .second_column {
-    width: $second_column_size;
+    width: $group_second_column_size;
   }
 }
 
 // Third column
-@if $third_column_size == "auto" {
+@if $group_third_column_size == "auto" {
   .third_column {
     flex-grow: 1;
     flex-basis: 0;
   }
 } @else {
   .third_column {
-    width: $third_column_size;
+    width: $group_third_column_size;
   }
 }
 
 // Fourth column
-@if $fourth_column_size == "auto" {
+@if $group_fourth_column_size == "auto" {
   .fourth_column {
     flex-grow: 1;
     flex-basis: 0;
   }
 } @else {
   .fourth_column {
-    width: $fourth_column_size;
+    width: $group_fourth_column_size;
   }
 }
 
 ////////////// Full Width //////////////
 
-@if $full_width_superbanner == "true" {
+@if $group_full_width_groupbanner == "true" {
   body {
     overflow-x: hidden; // Needed to compensate for the overflow caused by the vertical scrollbar
 
-    .superbanner-box {
+    .groupbanner-box {
       margin-top: -2em;
       margin-left: calc(-50vw + 50%);
       margin-right: calc(-50vw + 50%);
@@ -183,38 +183,38 @@
     }
   }
 
-  // Remove spacing when Category superbanners are in place
-  body.category-header .superbanner-box {
+  // Remove spacing when Category groupbanners are in place
+  body.category-header .groupbanner-box {
     margin-top: -1.5em;
   }
 }
 
 @media screen and (max-width: 736px) {
-  @if $display_on_mobile == "false" {
-    .superbanner-box {
+  @if $group_display_on_mobile == "false" {
+    .groupbanner-box {
       display: none !important;
     }
   }
 
   // Wrap columns
-  .superbanner-box .row {
+  .groupbanner-box .row {
     display: block;
   }
 
-  .superbanner-box .section-header .x-title {
+  .groupbanner-box .section-header .x-title {
     padding: 15px;
     margin-top: 1em;
   }
 
   // Drop heading below main title
-  @if $dismissible == "true" or $collapsible == "true" {
+  @if $group_dismissible == "true" or $group_collapsible == "true" {
     .button-container {
       margin-top: 1.5em;
       button {
         padding: 5px 5px;
       }
     }
-    .superbanner-box .section-header .x-title {
+    .groupbanner-box .section-header .x-title {
       margin-top: 2em;
     }
   }
@@ -235,8 +235,8 @@
 }
 
 @media screen and (min-width: 736px) {
-  @if $display_on_desktop == "false" {
-    .superbanner-box {
+  @if $group_display_on_desktop == "false" {
+    .groupbanner-box {
       display: none !important;
     }
   }
