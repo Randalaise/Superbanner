@@ -1,10 +1,10 @@
 @if $group_display_on_desktop == "false" {
-  .superbanner-box {
+  .group-banner-box {
     display: none !important;
   }
 }
 
-.superbanner-box {
+.group-banner-box {
   color: $group_primary_text_color;
   position: relative;
   margin-bottom: 20px;
@@ -13,30 +13,6 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-color: $group_background_color;
-
-  .button-container {
-    position: absolute;
-    right: 0;
-
-    .close,
-    .toggle {
-      float: right;
-      padding-top: 5px;
-      border: none;
-      color: #646464;
-      background: transparent;
-      font-size: 1.5157em;
-      cursor: pointer;
-
-      &:hover {
-        color: #222;
-      }
-
-      .svg-icon.hidden {
-        display: none;
-      }
-    }
-  }
 
   .section-header {
     padding-bottom: 20px;
@@ -62,48 +38,7 @@
     }
   }
 
-  .row {
-    display: flex;
-    justify-content: center;
-
-    .single-box {
-      float: left;
-      position: relative;
-      min-height: 1px;
-      padding: 0px 15px 30px;
-      text-align: center;
-
-      .icon {
-        font-size: 70px;
-        color: $group_secondary_text_color;
-
-        .responsive-img {
-          vertical-align: -0.125em;
-          border-style: none;
-          border-width: 1px;
-          height: 70px;
-        }
-      }
-
-      h3 {
-        text-align: center;
-        color: $group_secondary_text_color;
-      }
-
-      .superbanner-list {
-        display: flex;
-        justify-content: center;
-        ul {
-          text-align: left;
-          margin: 0;
-        }
-      }
-
-      .btn.btn-icon-text {
-        background: $group_secondary_text_color;
-      }
-    }
-  }
+  
 }
 
 
@@ -113,7 +48,7 @@
   body {
     overflow-x: hidden; // Needed to compensate for the overflow caused by the vertical scrollbar
 
-    .superbanner-box {
+    .group-banner-box {
       margin-top: -2em;
       margin-left: calc(-50vw + 50%);
       margin-right: calc(-50vw + 50%);
@@ -131,24 +66,24 @@
   }
 
   // Remove spacing when Category superbanners are in place
-  body.category-header .superbanner-box {
+  body.category-header .group-banner-box {
     margin-top: -1.5em;
   }
 }
 
 @media screen and (max-width: 736px) {
   @if $group_display_on_mobile == "false" {
-    .superbanner-box {
+    .group-banner-box {
       display: none !important;
     }
   }
 
   // Wrap columns
-  .superbanner-box .row {
+  .group-banner-box .row {
     display: block;
   }
 
-  .superbanner-box .section-header .x-title {
+  .group-banner-box .section-header .x-title {
     padding: 15px;
     margin-top: 1em;
   }
@@ -164,7 +99,7 @@
 
 @media screen and (min-width: 736px) {
   @if $display_on_desktop == "false" {
-    .superbanner-box {
+    .group-banner-box {
       display: none !important;
     }
   }
