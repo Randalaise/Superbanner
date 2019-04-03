@@ -1,14 +1,14 @@
 @if $display_on_desktop == "false" {
-  .banner-box {
+  .supersuperbanner-box {
     display: none !important;
   }
 }
 
-.banner-box {
+.superbanner-box {
   color: $primary_text_color;
   position: relative;
   margin-bottom: 20px;
-  background-image: url($banner_background_image);
+  background-image: url($superbanner_background_image);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -90,7 +90,7 @@
         color: $secondary_text_color;
       }
 
-      .banner-list {
+      .superbanner-list {
         display: flex;
         justify-content: center;
         ul {
@@ -162,11 +162,11 @@
 
 ////////////// Full Width //////////////
 
-@if $full_width_banner == "true" {
+@if $full_width_superbanner == "true" {
   body {
     overflow-x: hidden; // Needed to compensate for the overflow caused by the vertical scrollbar
 
-    .banner-box {
+    .superbanner-box {
       margin-top: -2em;
       margin-left: calc(-50vw + 50%);
       margin-right: calc(-50vw + 50%);
@@ -183,25 +183,25 @@
     }
   }
 
-  // Remove spacing when Category Banners are in place
-  body.category-header .banner-box {
+  // Remove spacing when Category superbanners are in place
+  body.category-header .superbanner-box {
     margin-top: -1.5em;
   }
 }
 
 @media screen and (max-width: 736px) {
   @if $display_on_mobile == "false" {
-    .banner-box {
+    .superbanner-box {
       display: none !important;
     }
   }
 
   // Wrap columns
-  .banner-box .row {
+  .superbanner-box .row {
     display: block;
   }
 
-  .banner-box .section-header .x-title {
+  .superbanner-box .section-header .x-title {
     padding: 15px;
     margin-top: 1em;
   }
@@ -214,7 +214,7 @@
         padding: 5px 5px;
       }
     }
-    .banner-box .section-header .x-title {
+    .superbanner-box .section-header .x-title {
       margin-top: 2em;
     }
   }
@@ -236,7 +236,7 @@
 
 @media screen and (min-width: 736px) {
   @if $display_on_desktop == "false" {
-    .banner-box {
+    .superbanner-box {
       display: none !important;
     }
   }
