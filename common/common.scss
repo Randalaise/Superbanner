@@ -153,10 +153,11 @@
     @if $display_on_desktop == "false" {
       .group-banner-box {
         display: none !important;
-      .tag-banner-box {
+      }
+        .tag-banner-box {
         display: none !important;   
      
       }
     }
   }
-  }
+ 
