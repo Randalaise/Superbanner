@@ -1,166 +1,162 @@
 @if $group_display_on_desktop == "false" {
+    .group-banner-box {
+      display: none !important;
+    }
+  }
+  
   .group-banner-box {
-    display: none !important;
-  }
-}
-
-.group-banner-box {
-  color: $group_primary_text_color;
-  position: relative;
-  margin-bottom: 20px;
-  background-image: url($group_superbanner_background_image);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: $group_background_color;
-
-  .section-header {
-    padding-bottom: 20px;
-
-    .x-title {
-      padding: 15px 65px;
-      margin: 0;
-      text-align: center;
-      color: $group_secondary_text_color;
-    }
-
-    .colored-line {
-      margin: auto;
-      width: 165px;
-      height: 1px;
-      background: $group_secondary_text_color;
-    }
-
-    .description p {
-      margin: 0;
-      padding: 15px;
-      text-align: center;
+    color: $group_primary_text_color;
+    position: relative;
+    margin-bottom: 20px;
+    background-image: url($group_superbanner_background_image);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: $group_background_color;
+  
+    .section-header {
+      padding-bottom: 20px;
+  
+      .x-title {
+        padding: 15px 65px;
+        margin: 0;
+        text-align: center;
+        color: $group_secondary_text_color;
+      }
+  
+      .colored-line {
+        margin: auto;
+        width: 165px;
+        height: 1px;
+        background: $group_secondary_text_color;
+      }
+  
+      .description p {
+        margin: 0;
+        padding: 15px;
+        text-align: center;
+      }
     }
   }
-}
-
-.tag-banner-box {
-  color: $tag_primary_text_color;
-  position: relative;
-  margin-bottom: 20px;
-  background-image: url($tag_superbanner_background_image);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: $tag_background_color;
-
-  .section-header {
-    padding-bottom: 20px;
-
-    .x-title {
-      padding: 15px 65px;
-      margin: 0;
-      text-align: center;
-      color: $tag_secondary_text_color;
-    }
-
-    .colored-line {
-      margin: auto;
-      width: 165px;
-      height: 1px;
-      background: $tag_secondary_text_color;
-    }
-
-    .description p {
-      margin: 0;
-      padding: 15px;
-      text-align: center;
+  
+  .tag-banner-box {
+    color: $tag_primary_text_color;
+    position: relative;
+    margin-bottom: 20px;
+    background-image: url($tag_superbanner_background_image);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: $tag_background_color;
+  
+    .section-header {
+      padding-bottom: 20px;
+  
+      .x-title {
+        padding: 15px 65px;
+        margin: 0;
+        text-align: center;
+        color: $tag_secondary_text_color;
+      }
+  
+      .colored-line {
+        margin: auto;
+        width: 165px;
+        height: 1px;
+        background: $tag_secondary_text_color;
+      }
+  
+      .description p {
+        margin: 0;
+        padding: 15px;
+        text-align: center;
+      }
     }
   }
-}
-
-
-
-////////////// Full Width //////////////
-
-@if $group_full_width_superbanner == "true" {
-  body {
-    overflow-x: hidden; // Needed to compensate for the overflow caused by the vertical scrollbar
-
-    .group-banner-box {
-      margin-top: -2em;
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-     }
+  
+  
+  
+  ////////////// Full Width //////////////
+  
+  @if $group_full_width_superbanner == "true" {
+    body {
+      overflow-x: hidden; // Needed to compensate for the overflow caused by the vertical scrollbar
+  
+      .group-banner-box {
+        margin-top: -2em;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+       }
+      
+       
+       .tag-banner-box {
+        margin-top: -2em;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        }
+       
+  
+        .container {
+          max-width: 85%;
+          margin: 0 auto;
+        }
+      }
     
-     
-     .tag-banner-box {
-      margin-top: -2em;
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
+
+    // Remove spacing when Category superbanners are in place
+    body.category-header .group-banner-box {
+      margin-top: -1.5em;
+    }
+   body.category-header .tag-banner-box {
+      margin-top: -1.5em;
+    }  
+    
+  }
+  
+  @media screen and (max-width: 736px) {
+    @if $group_display_on_mobile == "false" {
+      .group-banner-box {
+        display: none !important;
       }
+      .tag-banner-box {
+        display: none !important;
+      }
+    }
+  
+    // Wrap columns
+    .group-banner-box .row {
+      display: block;
+    }
+    .tag-banner-box .row {
+      display: block;
+    }
+    
+  
+    .group-banner-box .section-header .x-title {
+      padding: 15px;
+      margin-top: 1em;
+    }
+    .tag-banner-box .section-header .x-title {
+      padding: 15px;
+      margin-top: 1em;
+    }
+  
+  
+    // Compensation for the overflow caused by the
+    // vertical scrollbar not needed on mobile
+    .button-container {
+      margin-right: 0;
+    }
+  }
+  
+  @media screen and (min-width: 736px) {
+    @if $display_on_desktop == "false" {
+      .group-banner-box {
+        display: none !important;
+      .tag-banner-box {
+        display: none !important;   
      
-
-      .container {
-        max-width: 85%;
-        margin: 0 auto;
       }
     }
   }
-  
-  
-  
-
-  // Remove spacing when Category superbanners are in place
-  body.category-header .group-banner-box {
-    margin-top: -1.5em;
   }
- body.category-header .tag-banner-box {
-    margin-top: -1.5em;
-  }  
-  
-}
-
-@media screen and (max-width: 736px) {
-  @if $group_display_on_mobile == "false" {
-    .group-banner-box {
-      display: none !important;
-    }
-    .tag-banner-box {
-      display: none !important;
-    }
-  }
-
-  // Wrap columns
-  .group-banner-box .row {
-    display: block;
-  }
-  .tag-banner-box .row {
-    display: block;
-  }
-  
-
-  .group-banner-box .section-header .x-title {
-    padding: 15px;
-    margin-top: 1em;
-  }
-  .tag-banner-box .section-header .x-title {
-    padding: 15px;
-    margin-top: 1em;
-  }
-
-
-  // Compensation for the overflow caused by the
-  // vertical scrollbar not needed on mobile
-  .button-container {
-    margin-right: 0;
-  }
-}
-
-@media screen and (min-width: 736px) {
-  @if $display_on_desktop == "false" {
-    .group-banner-box {
-      display: none !important;
-    .tag-banner-box {
-      display: none !important;   
-   
-    }
-  }
-}
-}
-
