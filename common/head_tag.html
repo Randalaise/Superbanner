@@ -118,7 +118,7 @@ api.modifyClass("component:site-header", {
 
 </script>
 
-<script type="text/x-handlebars" data-template-name="/connectors/custom-groupbanner/groupbanner">
+<script type="text/x-handlebars" data-template-name="/connectors/custom-banner/banner">
   <section class="groupbanner-box">
   <div class="button-container">
     {{#if (theme-setting 'group_dismissible')}}
@@ -176,7 +176,7 @@ api.modifyClass("component:site-header", {
   </section>
 </script>
 
-<script type="text/x-handlebars" data-template-name="/connectors/above-main-container/groupbanner-themes">
+<script type="text/x-handlebars" data-template-name="/connectors/above-main-container/banner-themes">
   {{#if (theme-setting 'group_show_for_members')}}
     {{#if currentUser}}
       {{plugin-outlet name="custom-groupbanner"}}
