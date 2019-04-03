@@ -87,20 +87,14 @@
       margin-left: calc(-50vw + 50%);
       margin-right: calc(-50vw + 50%);
 
-      // Needed to compensate for the overflow caused by the vertical scrollbar
-      .button-container {
-        margin-right: 10px;
-      }
+    
      
      .tag-banner-box {
       margin-top: -2em;
       margin-left: calc(-50vw + 50%);
       margin-right: calc(-50vw + 50%);
 
-      // Needed to compensate for the overflow caused by the vertical scrollbar
-      .button-container {
-        margin-right: 10px;
-      }
+     
 
       .container {
         max-width: 85%;
@@ -167,4 +161,6 @@
    
     }
   }
+}
+}
 }
