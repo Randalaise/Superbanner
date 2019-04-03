@@ -1,57 +1,10 @@
 <script type="text/x-handlebars" data-template-name="/connectors/custom-superbanner/superbanner">
-  <section class="superbanner-box">
-  <div class="button-container">
-    {{#if (theme-setting 'dismissible')}}
-    <button type="button" class="close">
-      {{d-icon 'times'}}
-    </button>
-    {{/if}}
-    {{#if (theme-setting 'collapsible')}}
-    <button type="button" class="toggle">
-      {{d-icon 'chevron-down'}}{{d-icon 'chevron-up'}}
-    </button>
-    {{/if}}
-  </div>
+  <section class="superbanner-box"> 
     <div class="container">
       <div class="section-header">
-        {{{theme-setting 'main_heading_content'}}}
+        {{{theme-setting 'group_main_heading_content'}}}
       </div>
-      <div id="superbanner-content_wrap">
-        <div class="row">
-          {{#if (theme-setting 'first_column_content')}}
-          <div class="first_column single-box">
-            {{#if (theme-setting 'first_column_icon')}}
-              {{mount-widget widget="superbanner-column-icon" args=(hash column=0)}}
-            {{/if}}
-            <div>{{{theme-setting 'first_column_content'}}}</div>
-          </div>
-          {{/if}}
-          {{#if (theme-setting 'second_column_content')}}
-          <div class="second_column single-box">
-            {{#if (theme-setting 'second_column_icon')}}
-              {{mount-widget widget="superbanner-column-icon" args=(hash column=1)}}
-            {{/if}}
-            <div>{{{theme-setting 'second_column_content'}}}</div>
-          </div>
-          {{/if}}
-          {{#if (theme-setting 'third_column_content')}}
-          <div class="third_column single-box">
-            {{#if (theme-setting 'third_column_icon')}}
-              {{mount-widget widget="superbanner-column-icon" args=(hash column=2)}}
-            {{/if}}
-            <div>{{{theme-setting 'third_column_content'}}}</div>
-          </div>
-          {{/if}}
-          {{#if (theme-setting 'fourth_column_content')}}
-          <div class="fourth_column single-box">
-            {{#if (theme-setting 'fourth_column_icon')}}
-              {{mount-widget widget="superbanner-column-icon" args=(hash column=3)}}
-            {{/if}}
-            <div>{{{theme-setting 'fourth_column_content'}}}</div>
-          </div>
-          {{/if}}
-        </div>
-      </div>
+      
     </div>
   </section>
 </script>
