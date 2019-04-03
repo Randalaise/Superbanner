@@ -155,7 +155,7 @@
   }
   
   @media screen and (min-width: 736px) {
-    @if $display_on_desktop == "false" {
+    @if $group_display_on_desktop == "false" {
       .group-banner-box {
         display: none !important;
       }
