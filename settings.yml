@@ -8,70 +8,37 @@ group_show_for_anon:
   default: true
   description: 
     en: 'Display the superbanner for anonymous users'
-display_on_mobile:
+group_display_on_mobile:
   type: bool
   default: true
   description: 
     en: 'Display the superbanner on mobile devices'
-display_on_desktop:
+group_display_on_desktop:
   type: bool
   default: true
   description: 
     en: 'Display the superbanner on desktop computers'
-dismissible:
-  type: bool
-  default: false
-  description: 
-    en: 'Allow the superbanner to be closed by users'
-collapsible:
-  type: bool
-  default: false
-  description: 
-    en: 'Allow the superbanner to be expanded and collapsed by users'
-default_collapsed_state:
-  type: enum
-  default: collapsed
-  choices:
-    - expanded
-  description: 
-    en: 'Default collapsed state when collapsible setting is enabled'
-cookie_expiration_date:
-  type: string
-  default: ""
-  description: 
-    en: 'Leaving this setting blank will disable the cookies and make sure any existing superbanner cookies 
-        are deleted the next time a user visits. Two cookies are used to persist the expanded/collapsed 
-        state and closed state of the superbanner. Enter a date in the following format:<br>
-        <b>DD Mon YYYY HH:MM TIMEZONE</b><br>
-        Example: <b>12 Feb 2019 16:38 PST</b><br>
-        WARNING: See "cookie name" setting below for important info
-        regarding changes made to the superbanner after cookies have been activated.'
-cookie_name:
-  type: string
-  default: "v1"
-  description: 
-    en: 'When important changes are made to the superbanner, you must change the cookie name name to ensure all your users see the changes.'
-full_width_superbanner:
+group_full_width_superbanner:
   type: bool
   default: false
   description: 
     en: 'Display the superbanner at full browser width'
-superbanner_background_image:
+group_superbanner_background_image:
   type: string
   default: "https://i.imgur.com/k7SnZth.jpg"
   description: 
     en: 'The source url for your background image. You can also upload an image to this theme component and use the url from that.'
-background_color:
+group_background_color:
   type: string
   default: "#EED4A1"
   description: 
     en: 'Used in place of a background image'
-primary_text_color:
+group_primary_text_color:
   type: string
   default: "#000"
   description:
     en: 'The main text color of the superbanner'
-secondary_text_color:
+group_secondary_text_color:
   type: string
   default: "#FF6C00"
   description:
