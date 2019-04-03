@@ -4,13 +4,13 @@ const { iconNode, convertIconClass } = require("discourse-common/lib/icon-librar
 const h = require("virtual-dom").h;
 
 let columnIcons = [
-  settings.first_column_icon,
-  settings.second_column_icon,
-  settings.third_column_icon,
-  settings.fourth_column_icon
+  settings.group_first_column_icon,
+  settings.group_second_column_icon,
+  settings.group_third_column_icon,
+  settings.group_fourth_column_icon
 ];
 
-api.createWidget("superbanner-column-icon", {
+api.createWidget("groupbanner-column-icon", {
   tagName: "div.icon",
   html(attrs) {
     let columnIcon = columnIcons[attrs.column];
@@ -24,109 +24,109 @@ api.createWidget("superbanner-column-icon", {
 });
 
 function setCurrentExpDate(cookieExpDate) {
-  if($.cookie("superbanner_closed")) {
-    let closedCookie = JSON.parse($.cookie("superbanner_closed"));
-    if(closedCookie.name != settings.cookie_name) {
-      $.removeCookie("superbanner_closed", {path: '/'} );
+  if($.cookie("groupbanner_closed")) {
+    let closedCookie = JSON.parse($.cookie("groupbanner_closed"));
+    if(closedCookie.name != settings.group_cookie_name) {
+      $.removeCookie("groupbanner_closed", {path: '/'} );
     } else {
-      $.cookie("superbanner_closed", JSON.stringify(closedCookie), { expires: cookieExpDate, path: '/' });
+      $.cookie("groupbanner_closed", JSON.stringify(closedCookie), { expires: cookieExpDate, path: '/' });
     }
   }
 
-  if($.cookie("superbanner_collapsed")) {
-    let collapsedCookie = JSON.parse($.cookie("superbanner_collapsed"));
-    if(collapsedCookie.name != settings.cookie_name) {
-      $.removeCookie("superbanner_collapsed", {path: '/'} );
+  if($.cookie("groupbanner_collapsed")) {
+    let collapsedCookie = JSON.parse($.cookie("groupbanner_collapsed"));
+    if(collapsedCookie.name != settings.group_cookie_name) {
+      $.removeCookie("groupbanner_collapsed", {path: '/'} );
     } else {
-      $.cookie("superbanner_collapsed", JSON.stringify(collapsedCookie), { expires: cookieExpDate, path: '/' });
+      $.cookie("groupbanner_collapsed", JSON.stringify(collapsedCookie), { expires: cookieExpDate, path: '/' });
     }
   }
 }
 
-function setupsuperbanner() {
-  if($.cookie("superbanner_closed")) {
-    let closedCookie = JSON.parse($.cookie("superbanner_closed"));
-    if(closedCookie.closed == "true" && settings.dismissible) {
-      $('.superbanner-box').addClass("hidden");
+function setupgroupbanner() {
+  if($.cookie("groupbanner_closed")) {
+    let closedCookie = JSON.parse($.cookie("groupbanner_closed"));
+    if(closedCookie.closed == "true" && settings.group_dismissible) {
+      $('.groupbanner-box').addClass("hidden");
     }
   }
   let collapsedCookie;
-  if($.cookie("superbanner_collapsed")) {
-    collapsedCookie = JSON.parse($.cookie("superbanner_collapsed"));
+  if($.cookie("groupbanner_collapsed")) {
+    collapsedCookie = JSON.parse($.cookie("groupbanner_collapsed"));
   }
-  if(!$.cookie("superbanner_collapsed") && settings.collapsible && settings.default_collapsed_state == "collapsed" || collapsedCookie && collapsedCookie.collapsed == "true") {
-    $('#superbanner-content_wrap').addClass("hidden");
+  if(!$.cookie("groupbanner_collapsed") && settings.group_collapsible && settings.group_default_collapsed_state == "collapsed" || collapsedCookie && collapsedCookie.collapsed == "true") {
+    $('#groupbanner-content_wrap').addClass("hidden");
     $('.d-icon-chevron-down').removeClass("hidden");
     $('.d-icon-chevron-up').addClass("hidden");
   }
   else {
-    $('#superbanner-content_wrap').removeClass("hidden");
+    $('#groupbanner-content_wrap').removeClass("hidden");
     $('.d-icon-chevron-down').addClass("hidden");
     $('.d-icon-chevron-up').removeClass("hidden");
   }
 }
 function addClickEvents(cookieExpDate) {
-  $('.superbanner-box .close').click(function() {
-    $(".superbanner-box").addClass("hidden");
+  $('.groupbanner-box .close').click(function() {
+    $(".groupbanner-box").addClass("hidden");
     if(cookieExpDate) {
-      let superbannerState = { name: settings.cookie_name, closed: "true" };
-      $.cookie("superbanner_closed", JSON.stringify(superbannerState), { expires: cookieExpDate, path: '/' });
+      let groupbannerState = { name: settings.group_cookie_name, closed: "true" };
+      $.cookie("groupbanner_closed", JSON.stringify(groupbannerState), { expires: cookieExpDate, path: '/' });
     }
   });
-  $(".superbanner-box .toggle").click(function() {
-    $("#superbanner-content_wrap").slideToggle();
+  $(".groupbanner-box .toggle").click(function() {
+    $("#groupbanner-content_wrap").slideToggle();
     $('.d-icon-chevron-down').toggle();
     $('.d-icon-chevron-up').toggle();
     if(cookieExpDate) {
-      let superbannerState;
-      if($.cookie("superbanner_collapsed")) {
-        superbannerState = JSON.parse($.cookie('superbanner_collapsed'));
-        superbannerState.name = settings.cookie_name;
-        if(superbannerState.collapsed == "false") {
-          superbannerState.collapsed = "true";
+      let groupbannerState;
+      if($.cookie("groupbanner_collapsed")) {
+        groupbannerState = JSON.parse($.cookie('groupbanner_collapsed'));
+        groupbannerState.name = settings.group_cookie_name;
+        if(groupbannerState.collapsed == "false") {
+          groupbannerState.collapsed = "true";
         } else {
-          superbannerState.collapsed = "false";
+          groupbannerState.collapsed = "false";
         }
       } else {
-        if(settings.default_collapsed_state == "collapsed") {
-          superbannerState = { name: settings.cookie_name, collapsed: "false" }
+        if(settings.group_default_collapsed_state == "collapsed") {
+          groupbannerState = { name: settings.group_cookie_name, collapsed: "false" }
         } else {
-          superbannerState = { name: settings.cookie_name, collapsed: "true" }
+          groupbannerState = { name: settings.group_cookie_name, collapsed: "true" }
         }
       }
-      $.cookie("superbanner_collapsed", JSON.stringify(superbannerState), { expires: cookieExpDate, path: '/' });
+      $.cookie("groupbanner_collapsed", JSON.stringify(groupbannerState), { expires: cookieExpDate, path: '/' });
     }
   });
 }
 
 api.modifyClass("component:site-header", { 
   didInsertElement: function() {
-    this._super();
-    let rawDate = moment(settings.cookie_expiration_date);
+    this._group();
+    let rawDate = moment(settings.group_cookie_expiration_date);
     if (rawDate.isValid()) {
       let cookieExpDate = rawDate.toDate();
       setCurrentExpDate(cookieExpDate);
       addClickEvents(cookieExpDate);
     } else {
-      $.removeCookie("superbanner_closed", {path: '/'} );
-      $.removeCookie("superbanner_collapsed", {path: '/'} );
+      $.removeCookie("groupbanner_closed", {path: '/'} );
+      $.removeCookie("groupbanner_collapsed", {path: '/'} );
       addClickEvents(false);
     }
-    setupsuperbanner();
+    setupgroupbanner();
   }
 });
 
 </script>
 
-<script type="text/x-handlebars" data-template-name="/connectors/custom-superbanner/superbanner">
-  <section class="superbanner-box">
+<script type="text/x-handlebars" data-template-name="/connectors/custom-groupbanner/groupbanner">
+  <section class="groupbanner-box">
   <div class="button-container">
-    {{#if (theme-setting 'dismissible')}}
+    {{#if (theme-setting 'group_dismissible')}}
     <button type="button" class="close">
       {{d-icon 'times'}}
     </button>
     {{/if}}
-    {{#if (theme-setting 'collapsible')}}
+    {{#if (theme-setting 'group_collapsible')}}
     <button type="button" class="toggle">
       {{d-icon 'chevron-down'}}{{d-icon 'chevron-up'}}
     </button>
@@ -134,40 +134,40 @@ api.modifyClass("component:site-header", {
   </div>
     <div class="container">
       <div class="section-header">
-        {{{theme-setting 'main_heading_content'}}}
+        {{{theme-setting 'group_main_heading_content'}}}
       </div>
-      <div id="superbanner-content_wrap">
+      <div id="groupbanner-content_wrap">
         <div class="row">
-          {{#if (theme-setting 'first_column_content')}}
+          {{#if (theme-setting 'group_first_column_content')}}
           <div class="first_column single-box">
-            {{#if (theme-setting 'first_column_icon')}}
-              {{mount-widget widget="superbanner-column-icon" args=(hash column=0)}}
+            {{#if (theme-setting 'group_first_column_icon')}}
+              {{mount-widget widget="groupbanner-column-icon" args=(hash column=0)}}
             {{/if}}
-            <div>{{{theme-setting 'first_column_content'}}}</div>
+            <div>{{{theme-setting 'group_first_column_content'}}}</div>
           </div>
           {{/if}}
-          {{#if (theme-setting 'second_column_content')}}
+          {{#if (theme-setting 'group_second_column_content')}}
           <div class="second_column single-box">
-            {{#if (theme-setting 'second_column_icon')}}
-              {{mount-widget widget="superbanner-column-icon" args=(hash column=1)}}
+            {{#if (theme-setting 'group_second_column_icon')}}
+              {{mount-widget widget="groupbanner-column-icon" args=(hash column=1)}}
             {{/if}}
-            <div>{{{theme-setting 'second_column_content'}}}</div>
+            <div>{{{theme-setting 'group_second_column_content'}}}</div>
           </div>
           {{/if}}
-          {{#if (theme-setting 'third_column_content')}}
+          {{#if (theme-setting 'group_third_column_content')}}
           <div class="third_column single-box">
-            {{#if (theme-setting 'third_column_icon')}}
-              {{mount-widget widget="superbanner-column-icon" args=(hash column=2)}}
+            {{#if (theme-setting 'group_third_column_icon')}}
+              {{mount-widget widget="groupbanner-column-icon" args=(hash column=2)}}
             {{/if}}
-            <div>{{{theme-setting 'third_column_content'}}}</div>
+            <div>{{{theme-setting 'group_third_column_content'}}}</div>
           </div>
           {{/if}}
-          {{#if (theme-setting 'fourth_column_content')}}
+          {{#if (theme-setting 'group_fourth_column_content')}}
           <div class="fourth_column single-box">
-            {{#if (theme-setting 'fourth_column_icon')}}
-              {{mount-widget widget="superbanner-column-icon" args=(hash column=3)}}
+            {{#if (theme-setting 'group_fourth_column_icon')}}
+              {{mount-widget widget="groupbanner-column-icon" args=(hash column=3)}}
             {{/if}}
-            <div>{{{theme-setting 'fourth_column_content'}}}</div>
+            <div>{{{theme-setting 'group_fourth_column_content'}}}</div>
           </div>
           {{/if}}
         </div>
@@ -176,15 +176,15 @@ api.modifyClass("component:site-header", {
   </section>
 </script>
 
-<script type="text/x-handlebars" data-template-name="/connectors/above-main-container/superbanner-themes">
-  {{#if (theme-setting 'show_for_members')}}
+<script type="text/x-handlebars" data-template-name="/connectors/above-main-container/groupbanner-themes">
+  {{#if (theme-setting 'group_show_for_members')}}
     {{#if currentUser}}
-      {{plugin-outlet name="custom-superbanner"}}
+      {{plugin-outlet name="custom-groupbanner"}}
     {{/if}}
   {{/if}}
-  {{#if (theme-setting 'show_for_anon')}}
+  {{#if (theme-setting 'group_show_for_anon')}}
     {{#unless currentUser}}
-      {{plugin-outlet name="custom-superbanner"}}
+      {{plugin-outlet name="custom-groupbanner"}}
     {{/unless}}
   {{/if}}
 </script>
