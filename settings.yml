@@ -1,9 +1,9 @@
-show_for_members:
+group_show_for_members:
   type: bool
   default: true
   description: 
     en: 'Display the superbanner for users logged into the forum'
-show_for_anon:
+group_show_for_anon:
   type: bool
   default: true
   description: 
